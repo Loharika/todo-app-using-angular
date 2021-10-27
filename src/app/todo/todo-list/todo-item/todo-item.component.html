@@ -1,0 +1,19 @@
+
+  <div class="todo-item-card">
+    <input 
+    class="todo-item-checkbox"
+    type="checkbox" 
+    id="todo-checkbox" 
+    [checked]="todo.checked"
+    name="todo-checkbox"
+  >
+  <input 
+  type="text" 
+  class="todo-item-title" 
+  class="form-control"
+  name="todo-title"
+  ngModel="{{todo.title}}"
+  disabled
+  > 
+  <button type="button" class="btn btn-danger text-white delete-btn">X</button>
+  </div>

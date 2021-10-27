@@ -1,0 +1,10 @@
+.add-button{
+    margin: 5px;
+}
+.add-todo-view{
+    margin: 10px 10px;
+    padding: 10px 10px;
+}
+.add-todo-label{
+    font-size: 25px;
+}

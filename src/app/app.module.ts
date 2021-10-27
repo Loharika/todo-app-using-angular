@@ -14,14 +14,18 @@ import { CoreModule } from './core.module';
 import * as fromApp from './store/app.reducer';
 
 import { AuthEffects } from './auth/store/auth.effects';
-import { environment } from '../environments/environment'; 
+import { environment } from '../environments/environment';   
+import { InputFieldComponent } from './todo/input-field/input-field.component';
+import { TodoModule } from './todo/todo.module';
+import { TodoDashboardComponent } from './todo/todo-dashboard/todo-dashboard.component';
 
-@NgModule({declarations: [AppComponent, HeaderComponent],
+@NgModule({declarations: [AppComponent, HeaderComponent ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     StoreModule.forRoot(fromApp.appReducer),
+    TodoModule,
     SharedModule,
     CoreModule,
     EffectsModule.forRoot([AuthEffects]),

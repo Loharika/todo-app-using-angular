@@ -1,0 +1,11 @@
+<div class="todo-list-view">
+
+<h1>Todos</h1>
+<div class="row">
+        
+        <div class="col-xs-12">
+        <todo-item *ngFor="let todoEl of todos;let i=index" 
+        [todo]="todoEl" [index]="i"></todo-item>
+</div>
+</div>
+</div>

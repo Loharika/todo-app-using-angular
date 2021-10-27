@@ -1,0 +1,19 @@
+.todo-item-card{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 8px;
+    padding:9px 9px;
+    margin:10px 10px;
+    border:1px solid lightgrey;
+}
+.todo-item-checkbox{
+    margin-right:5px;
+
+}
+.todo-item-title{
+    padding-left:5px;
+}
+.delete-btn{
+    margin-left:5px
+}
