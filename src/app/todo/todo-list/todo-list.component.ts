@@ -20,6 +20,7 @@ export class TodoListComponent implements OnInit ,OnDestroy {
         .subscribe((todos:TodoModel[])=>{
           this.todos =todos
         })
+        this.todoService.getTodosFromLocalStorage()
         this.todos = this.todoService.getTodos();
       }
       ngOnDestroy(){

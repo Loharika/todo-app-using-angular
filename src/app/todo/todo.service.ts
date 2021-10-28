@@ -1,10 +1,10 @@
-import { EventEmitter, Injectable } from '@angular/core';
+import { EventEmitter, Injectable, OnInit } from '@angular/core';
 
 import { Subject } from 'rxjs/Subject';
 import { TodoModel } from './todo.model';
 
 @Injectable()
-export class TodoService {
+export class TodoService implements OnInit{
   todosChanged =new Subject<TodoModel[]>();
   private todos: TodoModel[] = [
     new TodoModel(
@@ -19,6 +19,20 @@ export class TodoService {
   ];
 //   private todos: TodoModel[] = []
   constructor() {}
+
+ngOnInit(){
+  if(localStorage.getItem('todos')){
+    this.todos=JSON.parse(localStorage.getItem('todos'))
+    console.log(this.todos,"if")
+  }
+  console.log(this.todos,"else")
+}
+getTodosFromLocalStorage(){
+  if(localStorage.getItem('todos')){
+    this.todos=JSON.parse(localStorage.getItem('todos'))
+  }
+ 
+}
 
   setTodos(todos:TodoModel[]){
     this.todos=todos
@@ -36,6 +50,7 @@ export class TodoService {
 
   addTodo(todo:TodoModel){
     this.todos.push(todo)
+    this.storeTodos()
     this.todosChanged.next(this.todos.slice())
   }
 
@@ -46,6 +61,7 @@ export class TodoService {
       checked:checkedVal
     }
     this.todos[index]=updatedTodo;
+    this.storeTodos()
     this.todosChanged.next(this.todos.slice())
   }
 
@@ -56,11 +72,17 @@ export class TodoService {
       checked:this.todos[index].checked,
     }
     this.todos[index]=updatedTodo;
+    this.storeTodos()
     this.todosChanged.next(this.todos.slice())
   }
 
   deleteTodo(index:number){
     this.todos.splice(index,1)
+    this.storeTodos()
     this.todosChanged.next(this.todos.slice())
+  }
+
+  storeTodos(){
+    localStorage.setItem('todos',JSON.stringify(this.todos))
   }
 }

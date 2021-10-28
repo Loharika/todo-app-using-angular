@@ -1,4 +1,5 @@
 import { Component, Input } from "@angular/core";
+import { EventEmitter } from "stream";
 import { TodoModel } from "../../todo.model";
 import { TodoService } from "../../todo.service";
 
@@ -16,12 +17,13 @@ export class TodoItemComponent {
   ngOnInit() {
   }
 
-  onUpdateTodoCheckbox(index,event){
+  onUpdateTodoCheckbox(index:number,event){
     this.todoService.updateTodoCheckbox(index,event.target.checked)
 
   }
 
   onUpdateTodoTitle(index,event){
+    console.log(event.target.value)
     this.todoService.updateTodoTitle(index,event.target.value)
   }
 

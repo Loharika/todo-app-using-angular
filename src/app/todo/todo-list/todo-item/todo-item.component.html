@@ -1,20 +1,19 @@
 
   <div class="todo-item-card">
     <input 
-    class="todo-item-checkbox"
+    class="todo-item-checkbox "
     type="checkbox" 
     id="todo-checkbox" 
     [checked]="todo.checked"
     name="todo-checkbox"
     (change)="onUpdateTodoCheckbox(index,$event)"
-  >
-  <input 
-  type="text" 
-  class="todo-item-title" 
-  class="form-control"
-  name="todo-title"
-  ngModel="{{todo.title}}"
-  (change)="onUpdateTodoTitle(index,$event)"
-  > 
-  <button type="button" class="btn btn-danger text-white delete-btn" (click)="onDeleteTodo(index)">X</button>
+    >
+    <input 
+    type="text"   
+    class="todo-item-title form-control"
+    name="todo-title"
+    ngModel="{{todo.title}}"
+    (change)="onUpdateTodoTitle(index,$event)"
+    > 
+    <button type="button" class="btn btn-danger text-white delete-btn" (click)="onDeleteTodo(index)">X</button>
   </div>
