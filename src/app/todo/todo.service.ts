@@ -39,8 +39,23 @@ export class TodoService {
     this.todosChanged.next(this.todos.slice())
   }
 
-  updateTodo(index:number,newTodo:TodoModel){
-    this.todos[index]=newTodo;
+  updateTodoCheckbox(index:number,checkedVal:boolean){
+    const updatedTodo={
+      id:this.todos[index].id,
+      title:this.todos[index].title,
+      checked:checkedVal
+    }
+    this.todos[index]=updatedTodo;
+    this.todosChanged.next(this.todos.slice())
+  }
+
+  updateTodoTitle(index:number,updatedTodoTitle:string){
+    const updatedTodo={
+      id:this.todos[index].id,
+      title:updatedTodoTitle,
+      checked:this.todos[index].checked,
+    }
+    this.todos[index]=updatedTodo;
     this.todosChanged.next(this.todos.slice())
   }
 

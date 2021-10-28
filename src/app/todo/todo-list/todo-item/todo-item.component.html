@@ -6,6 +6,7 @@
     id="todo-checkbox" 
     [checked]="todo.checked"
     name="todo-checkbox"
+    (change)="onUpdateTodoCheckbox(index,$event)"
   >
   <input 
   type="text" 
@@ -13,7 +14,7 @@
   class="form-control"
   name="todo-title"
   ngModel="{{todo.title}}"
-  disabled
+  (change)="onUpdateTodoTitle(index,$event)"
   > 
-  <button type="button" class="btn btn-danger text-white delete-btn">X</button>
+  <button type="button" class="btn btn-danger text-white delete-btn" (click)="onDeleteTodo(index)">X</button>
   </div>

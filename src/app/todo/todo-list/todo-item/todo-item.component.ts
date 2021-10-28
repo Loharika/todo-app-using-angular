@@ -15,4 +15,17 @@ export class TodoItemComponent {
 
   ngOnInit() {
   }
+
+  onUpdateTodoCheckbox(index,event){
+    this.todoService.updateTodoCheckbox(index,event.target.checked)
+
+  }
+
+  onUpdateTodoTitle(index,event){
+    this.todoService.updateTodoTitle(index,event.target.value)
+  }
+
+  onDeleteTodo(index){
+    this.todoService.deleteTodo(index)
+  }
 }

@@ -17,7 +17,7 @@ export class InputFieldComponent  {
     onAddTodo(form:NgForm){
         const id=Math.random().toFixed(digit)
         if(form.value.todo!==' '){
-            this.error=true
+            this.error=false    
             const newTodo={
                 id:id,
                 title:form.value.todo,
